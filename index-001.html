@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <title>Computer Utilities</title>
+  </head>
+  <body>
+    <div id="searchparameters">
+      <h1>Computer Explorer</h1>
+      <!--SELECT THE DIRECTORY-->
+      <h2>Select Directory to Search</h2>
+      <button id="opnDirBtn">Open Directory</button>
+      <div id="selectedDir">No Directory Selected.</div>
+
+      <!--ENTER SEARCH KEYWORDS-->
+      <h2>Enter Search Keywords</h2>
+      <div>Text to search for: </div>
+      <input type="text" id="searchword">
+
+      <!--SELECT SEARCH OPTIONS-->
+      <h2>Select Search Options</h2>
+      <!--Search Location Options-->
+      <div>
+        <h3>Locations to Search</h3>
+        <input type="radio" id="opt1" name="searchlocation" value=0 checked="checked">
+        <label for="opt1">Search just within selected directory.</label><br>
+        <input type="radio" id="opt2" name="searchlocation" value=1>
+        <label for="opt2">Search within selected directory and subdirectories (Recursive search).</label><br>
+      </div>
+      
+
+      <!--Search Content Options-->
+      <div>
+        <h3>Search Type</h3>
+        <input type="radio" id="opt1" name="searchtype" value=0 checked="checked">
+        <label for="opt1">Search for matches within file names and file contents.</label><br>
+        <input type="radio" id="opt2" name="searchtype" value=1>
+        <label for="opt2">Search for matches within file names.</label><br>
+        <input type="radio" id="opt3" name="searchtype" value=2>
+        <label for="opt3">Search for matches within file content.</label><br>
+      </div>
+
+      <!--Start Search-->
+      <button id="searchBtn">Start Search!</button>
+    </div>
+    <div id="searchresults">
+      <button id="searchBackBtn">Back</button>
+      <h2>Results:</h2>
+      <ul id="searchResultsList"></ul>
+    </div>
+    <p id="info"></p>
+  </body>
+  <script src="./renderer.js"></script>
+</html>

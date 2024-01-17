@@ -1,0 +1,19 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "a multipurpose utility application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zack Powers",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.1.3"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1",
+    "readline-promise": "^1.0.5"
+  }
+}
