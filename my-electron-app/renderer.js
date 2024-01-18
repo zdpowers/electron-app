@@ -41,6 +41,7 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
             matchingFilePaths.forEach(filePath => {
                 const li = document.createElement('li');
                 li.textContent = filePath;
+                li.classList = "result-list-item";
 
                 // Add click event listener to open the document
                 //li.addEventListener('click', () => {

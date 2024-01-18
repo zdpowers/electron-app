@@ -7,50 +7,77 @@
     <title>Computer Utilities!</title>
     <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
-<body>
-    <div id="searchparameters">
-        <h1>Computer Explorer</h1>
-        
-        <h2>Select Directory to Search</h2>
-        <button id="opnDirBtn">Open Directory</button>
-        <div id="selectedDir">No Directory Selected.</div>
-
-        <h2>Enter Search Keywords</h2>
-        <div id="searchinputlabel">Text to search for: </div>
-        <input type="text" id="searchword">
-
-        <h2>Select Search Options</h2>
-
-        <!--Search Location Options-->
-        <div>
+<body class="body-box">
+    <div class="top-bar"></div>
+    <div id="searchparameters" class="search-parameters-box">
+      <div class="page-title-box">
+          <h1>Computer Explorer</h1>
+      </div>
+      <div class="select-dir-box">
+          <h2>Select Directory to Search</h2>
+          <div class="select-dir-flexbox">
+            <button id="opnDirBtn" class="button-7">Open Directory</button>
+            <div id="selectedDir" class="sel-dir-lbl">No Directory Selected.</div>
+          </div>
+       </div>
+      <div class="search-term-box">
+          <h2>Enter Search Keywords</h2>
+          <div class="search-term-flexbox">
+            <div id="searchinputlabel" class="search-term-lbl">Text to search for: </div>
+            <input type="text" id="searchword" class="search-term-input">
+         </div>
+       </div>
+      <div class="search-options-box">
+          <h2>Select Search Options</h2>
+          <!--Search Location Options-->
+          <div>
             <h3>Locations to Search</h3>
-            <input type="radio" id="opt1" name="searchlocation" value=0 checked="checked">
-            <label for="opt1">Search just within selected directory.</label><br>
-            <input type="radio" id="opt2" name="searchlocation" value=1>
-            <label for="opt2">Search within selected directory and subdirectories (Recursive search).</label><br>
-        </div>
-
-        <!--Search Content Options-->
-        <div>
+            <div class="radio-option-box">
+              <input type="radio" id="opt1" name="searchlocation" value=0 checked="checked">
+              <label for="opt1" class="radio-label">Search just within selected directory.</label><br>
+            </div>
+            <div class="radio-option-box">
+              <input type="radio" id="opt2" name="searchlocation" value=1>
+              <label for="opt2" class="radio-label">Search within selected directory and subdirectories (Recursive search).</label><br>
+            </div>
+          </div>
+          <!--Search Content Options-->
+          <div>
             <h3>Search Type</h3>
-            <input type="radio" id="opt1" name="searchtype" value=0 checked="checked">
-            <label for="opt1">Search for matches within file names and file contents.</label><br>
-            <input type="radio" id="opt2" name="searchtype" value=1>
-            <label for="opt2">Search for matches within file names.</label><br>
-            <input type="radio" id="opt3" name="searchtype" value=2>
-            <label for="opt3">Search for matches within file content.</label><br>
+            <div class="radio-option-box">
+              <input type="radio" id="opt1" name="searchtype" value=0 checked="checked">
+              <label for="opt1" class="radio-label">Search for matches within file names and file contents.</label><br>
+            </div>
+            <div class="radio-option-box">
+              <input type="radio" id="opt2" name="searchtype" value=1>
+              <label for="opt2" class="radio-label">Search for matches within file names.</label><br>
+            </div>
+            <div class="radio-option-box">
+              <input type="radio" id="opt3" name="searchtype" value=2>
+              <label for="opt3" class="radio-label">Search for matches within file content.</label><br>
+            </div>
         </div>
-
-        <button id="searchBtn">Start Search!</button>
+        </div>
+      <div class="search-btn-box">
+          <button id="searchBtn" class="button-7">Start Search!</button>
+        </div>
     </div>
 
-    <div id="searchresults">
-        <button id="searchBackBtn">Back</button>
+    <div id="searchresults" class="search-results-box">
+        <div class="back-btn-box">
+          <button id="searchBackBtn" class="button-7">Back</button>
+        </div>
         <h2>Results:</h2>
-        <ul id="searchResultsList"></ul>
+        <ul id="searchResultsList" class="result-list">
+          <li class="result-list-item">Demo list item</li>
+          <li class="result-list-item">Demo list item</li>
+        </ul>
     </div>
 
-    <p id="info"></p>
+    <!--
+    <p id="info" class="info-bar"></p>
+    -->
     <script src="./renderer.js"></script>
 </body>
+
 </html>
