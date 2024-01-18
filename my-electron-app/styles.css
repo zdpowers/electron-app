@@ -63,10 +63,15 @@ For box-shadows: https://getcssscan.com/css-box-shadow-examples?ref=beautifulbut
   
   /* RESULT LIST */
   .result-list {
-    list-style-type: "-";
+    list-style-type: none;
   }
   .result-list-item {
     padding: 5px;
+    color: #3366CC;
+  }
+  .result-list-item:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
   
   /* BUTTON CSS https://getcssscan.com/css-buttons-examples */

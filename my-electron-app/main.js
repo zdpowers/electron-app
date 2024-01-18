@@ -9,8 +9,8 @@ const { shell } = require('electron');
 // Writing a reusable function to instantiate windows
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 900,
+    height: 700,
     titleBarStyle: "hidden",
     //titleBarOverlay: {
     //    color: '#2f3241',
