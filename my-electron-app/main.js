@@ -1,7 +1,8 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron/main')
 const npath = require('node:path')
 
-const sfcr = require('./scripts/searchFileContentRecursively'); // Import the fileSearch module
+const sfcr = require('./scripts/searchFileContentRecursively'); // search file content recursively
+const sfnr = require('./scripts/searchFileNamesRecursively'); // search file names recursively
 
 //To open files
 const { shell } = require('electron');

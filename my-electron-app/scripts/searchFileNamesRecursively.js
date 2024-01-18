@@ -35,11 +35,6 @@ function searchFileNamesRecursively(directory, searchString) {
     return matchingPaths;
 }
 
-// Example: Search for files and folders containing 'example' in their name in the current directory
-const searchDirectory = __dirname; // Replace with the desired directory path
-const searchString = 'example';
-
-const matches = searchFilesAndFolders(searchDirectory, searchString);
-
-console.log('Matching file and folder paths:');
-console.log(matches);
+module.exports = {
+    searchFileNamesRecursively
+}
