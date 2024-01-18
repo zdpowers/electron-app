@@ -50,6 +50,24 @@ const createWindow = () => {
         // Example: event.sender.send('search-error', 'An error occurred during the search');
     }
   });
+  // RECURSIVE NAME SEARCH
+  ipcMain.on('recursive-name-search', async (event, args) => {
+    try {
+        if (args && args.length >= 2) {
+            console.log('Received arguments:', args);
+            const matchingFilePaths = await sfnr.searchFileNamesRecursively(args[0], args[1]);
+            console.log('Matching file paths:', matchingFilePaths);
+            // If the search is successful, emit 'search-result' with the matching file paths
+            event.sender.send('search-result', matchingFilePaths);
+        } else {
+            console.error('Invalid arguments for recursive content search. Args:', args);
+        }
+    } catch (error) {
+        console.error('Error during recursive content search:', error.message);
+        // If there is an error during the search, emit 'search-error' with an error message
+        // Example: event.sender.send('search-error', 'An error occurred during the search');
+    }
+  });
 }
 
 // Calling your function when the app is ready

@@ -30,7 +30,8 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
     //myapp.startRecursiveContentSearch(args);
     try {
         console.log('Before search');
-        const matchingFilePaths = await myapp.startRecursiveContentSearch(args);
+        //const matchingFilePaths = await myapp.startRecursiveContentSearch(args);
+        const matchingFilePaths = await myapp.startRecursiveNameSearch(args);
         console.log('After search');
 
         // Clear previous search results
