@@ -17,33 +17,16 @@ contextBridge.exposeInMainWorld('myapp', {
             document.getElementById('selectedDir').innerText = path;
         });
     },
-    startRecursiveContentSearch: (args) => {
+    startSearch: (args) => {
         return new Promise((resolve, reject) => {
-            ipcRenderer.send('recursive-content-search', args);
-
+            ipcRenderer.send('start-search', args);
+    
             ipcRenderer.on('search-result', (event, matchingFilePaths) => {
                 // Handle the search result here
                 console.log('Received matching file paths:', matchingFilePaths);
                 resolve(matchingFilePaths);
             });
-
-            ipcRenderer.on('search-error', (event, errorMessage) => {
-                // Handle the search error here
-                console.error('Search error:', errorMessage);
-                reject(new Error(errorMessage));
-            });
-        });
-    },
-    startRecursiveNameSearch: (args) => {
-        return new Promise((resolve, reject) => {
-            ipcRenderer.send('recursive-name-search', args);
-
-            ipcRenderer.on('search-result', (event, matchingFilePaths) => {
-                // Handle the search result here
-                console.log('Received matching file paths:', matchingFilePaths);
-                resolve(matchingFilePaths);
-            });
-
+    
             ipcRenderer.on('search-error', (event, errorMessage) => {
                 // Handle the search error here
                 console.error('Search error:', errorMessage);

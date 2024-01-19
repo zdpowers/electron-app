@@ -8,8 +8,10 @@ const pdf = require('pdf-parse');
  * Recursively searches files in a directory for occurrences of a specified text.
  * @param {string} directory - The directory to start the search from.
  * @param {string} searchText - The text to search for in the files.
+ * @param {boolean} recursiveFlag - If true search subdirs recursively, if false only search current dir
+ * @returns {Array} - An array of full filepaths for all matches.
  */
-async function searchFileContentRecursively(directory, searchText) {
+async function searchFileContentRecursively(directory, searchText, recursiveFlag) {
     const matchingFilePaths = [];
     try {
         const files = fs.readdirSync(directory);
@@ -21,8 +23,10 @@ async function searchFileContentRecursively(directory, searchText) {
             if (fileStats.isDirectory()) {
                 // If it's a directory, recursively search its contents
                 //await searchFileContentRecursively(filePath, searchText);
-                const nestedMatches = await searchFileContentRecursively(filePath, searchText);
-                matchingFilePaths.push(...nestedMatches);
+                if(recursiveFlag == true) {
+                    const nestedMatches = await searchFileContentRecursively(filePath, searchText);
+                    matchingFilePaths.push(...nestedMatches);
+                }
             } else {
                 // If it's a file, determine its type and search for the specified text
                 if (path.extname(filePath).toLowerCase() === '.pdf') {

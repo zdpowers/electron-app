@@ -23,16 +23,10 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
     
     // Start the search
     //startSearch(fpath, keyword, location, type);
-    let args = [fpath, keyword];
-    console.log(fpath);
-    console.log(keyword);
-    console.log(args);
-    //myapp.startRecursiveContentSearch(args);
+    let args = [fpath, keyword, location, type];
+
     try {
-        console.log('Before search');
-        //const matchingFilePaths = await myapp.startRecursiveContentSearch(args);
-        const matchingFilePaths = await myapp.startRecursiveNameSearch(args);
-        console.log('After search');
+        const matchingFilePaths = await myapp.startSearch(args);
 
         // Clear previous search results
         searchResultsList.innerHTML = '';
@@ -43,11 +37,6 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
                 const li = document.createElement('li');
                 li.textContent = filePath;
                 li.classList = "result-list-item";
-
-                // Add click event listener to open the document
-                //li.addEventListener('click', () => {
-                //    openDocument(filePath);
-                //});
 
                 searchResultsList.appendChild(li);
             });
@@ -97,22 +86,3 @@ document.getElementById('searchBackBtn').addEventListener('click', () => {
 // Display information about the application
 const information = document.getElementById('info');
 information.innerText = `This app is using Chrome (v${window.versions.chrome()}), Node.js (v${window.versions.node()}), and Electron (v${window.versions.electron()})`;
-
-
-function startSearch(fpath, keyword, location, type) {
-    //Location = 0 = non-recursive Location = 1 = recursive
-    //type = 0 = name and content, 1 = file names, 2 = file content
-    if (location == 0) {
-        //TODO: implement non-recursive searches
-    } else if (location == 1) {
-        // Search is recursive
-        if(type == 0) {
-            //TODO: implement name&content search
-        } else if (type == 1) {
-            //TODO: file name search
-        } else if (type == 2) {
-            // TODO: file contents search
-            myapp.startRecursiveContentSearch(fpath, keyword);
-        }
-    }
-}
