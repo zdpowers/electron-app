@@ -70,6 +70,10 @@ For box-shadows: https://getcssscan.com/css-box-shadow-examples?ref=beautifulbut
   /*box-shadow: 0 4px 4px -4px grey;*/
 }
 
+h1, h2, h3 {
+  font-family: 'Open Sans', sans-serif; /* Use Open Sans font for heading elements */
+}
+
 .bottom-bar {
   position: fixed;
   bottom: 0;
