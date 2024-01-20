@@ -25,6 +25,14 @@ const createWindow = () => {
     }
   });
   win.loadFile('index.html');
+
+  // GO TO AI APP
+  ipcMain.on('open-AI-app', (event, filePath) => {
+    win.loadFile(filePath);
+  })
+
+  // GO TO SEARCH APP
+
   // OPEN DIRECTORY DIALOG
   ipcMain.on('open-directory-dialog', async () => openDirectoryProcess(win));
   // OPEN FILE

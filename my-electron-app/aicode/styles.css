@@ -1,0 +1,108 @@
+/*
+For box-shadows: https://getcssscan.com/css-box-shadow-examples?ref=beautifulbuttons-bottom
+*/
+
+
+/* SIDE BAR Add styles for the sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 45px; /* Adjust the width as needed */
+  background-color: #333; /* Set the background color of the sidebar */
+  padding-top: 40px; /* Add padding to the top if needed */
+  box-shadow: 0 4px 4px -4px grey;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-button {
+  background-color: #444; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: background-color 0.3s ease; /* Add transition for smoother color change */
+}
+.sidebar-button:hover {
+  background-color: #555; /* Darken the background on hover */
+}
+.sidebar-button:active {
+  background-color: #666; /* Make it even lighter on click */
+}
+.sidebar-button .icon {
+  font-size: 18px; /* Adjust the icon size */
+}
+
+
+/* Adjust main content to accommodate the sidebar */
+
+.content {
+  margin-left: 60px; /* Adjust the margin to include the sidebar width */
+  margin-right: 20px;
+}
+
+.body-box {
+  margin-left: 20px;
+  margin-right: 20px;
+  background: white;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2em;
+  /*background-color: #f0f0f0;*/
+  background-color: #222;
+  z-index: 10;
+  /*box-shadow: 0 4px 4px -4px grey;*/
+}
+
+h1, h2, h3 {
+  font-family: 'Open Sans', sans-serif; /* Use Open Sans font for heading elements */
+}
+
+.temp-message {
+  width: 100%;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: #222;
+  z-index: 10;
+}
+
+
+
+
+
+/* SCROLL BAR Override default scroll bar styles */
+::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #555; /* Set the color of the thumb (the draggable part) */
+  border-radius: 6px; /* Set border-radius for a rounded appearance */
+}
+::-webkit-scrollbar-track {
+  background-color: #333; /* Set the color of the track (the non-draggable part) */
+}
+/* Add hover effect for the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
