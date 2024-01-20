@@ -3,6 +3,7 @@ const npath = require('node:path')
 
 const sfcr = require('./searchcode/scripts/searchFileContentRecursively'); // search file content recursively
 const sfnr = require('./searchcode/scripts/searchFileNamesRecursively'); // search file names recursively
+const sfr = require('./searchcode/scripts/searchFileRecursively'); //search file names and content
 
 //To open files
 const { shell } = require('electron');
@@ -54,7 +55,7 @@ const createWindow = () => {
           // NON RECURSIVE SEARCHED
             switch(args[3]) {
                 case '0':
-                    // TODO: Implement content+name search
+                    matchingFilePaths = await sfr.searchFileRecursively(args[0], args[1], false);
                     event.sender.send('search-result', matchingFilePaths);
                     break;
                 case '1':
@@ -71,7 +72,7 @@ const createWindow = () => {
         } else if (args[2] == '1') {
             switch(args[3]) {
                 case '0':
-                    // TODO: Implement content+name search
+                    matchingFilePaths = await sfr.searchFileRecursively(args[0], args[1], true);
                     event.sender.send('search-result', matchingFilePaths);
                     break;
                 case '1':
