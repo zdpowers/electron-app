@@ -1,8 +1,8 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron/main')
 const npath = require('node:path')
 
-const sfcr = require('./scripts/searchFileContentRecursively'); // search file content recursively
-const sfnr = require('./scripts/searchFileNamesRecursively'); // search file names recursively
+const sfcr = require('./searchcode/scripts/searchFileContentRecursively'); // search file content recursively
+const sfnr = require('./searchcode/scripts/searchFileNamesRecursively'); // search file names recursively
 
 //To open files
 const { shell } = require('electron');
@@ -24,7 +24,7 @@ const createWindow = () => {
         nodeIntegrationInWorker: true
     }
   });
-  win.loadFile('index.html');
+  win.loadFile('./searchcode/index.html');
 
   // GO TO AI APP
   ipcMain.on('open-AI-app', (event, filePath) => {
@@ -32,6 +32,9 @@ const createWindow = () => {
   })
 
   // GO TO SEARCH APP
+  ipcMain.on('open-search-app', (event, filePath) => {
+    win.loadFile(filePath);
+  });
 
   // OPEN DIRECTORY DIALOG
   ipcMain.on('open-directory-dialog', async () => openDirectoryProcess(win));
