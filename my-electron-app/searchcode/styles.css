@@ -196,3 +196,30 @@ h1, h2, h3 {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #777;
 }
+
+/* LOADING RESULTS */
+.loading-results {
+  font-size: 30px;
+}
+
+.loading-results:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
+}

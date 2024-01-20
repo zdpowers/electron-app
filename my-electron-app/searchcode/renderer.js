@@ -87,6 +87,9 @@ function openDocument(filePath) {
 
 // Back button
 document.getElementById('searchBackBtn').addEventListener('click', () => {
+    // CLEAR SEARCH RESULTS
+    searchResultsList.innerHTML = '<li><div class="loading-results">Loading</div></li>';
+
     document.getElementById('searchresults').style.display = "none";
     document.getElementById('searchparameters').style.display = "block";
 })
