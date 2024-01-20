@@ -1,8 +1,8 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron/main')
 const npath = require('node:path')
 
-const sfcr = require('./scripts/searchFileContentRecursively'); // search file content recursively
-const sfnr = require('./scripts/searchFileNamesRecursively'); // search file names recursively
+const sfcr = require('./searchcode/scripts/searchFileContentRecursively'); // search file content recursively
+const sfnr = require('./searchcode/scripts/searchFileNamesRecursively'); // search file names recursively
 
 //To open files
 const { shell } = require('electron');
@@ -13,18 +13,29 @@ const createWindow = () => {
     width: 900,
     height: 700,
     titleBarStyle: "hidden",
-    //titleBarOverlay: {
-    //    color: '#2f3241',
-    //    symbolColor: '#74b1be',
-    //},
-    titleBarOverlay: true,
+    titleBarOverlay: {
+        color: '#222',
+        symbolColor: '#f0f0f0',
+    },
+    //titleBarOverlay: true,
     //frame: false,
     webPreferences: {
         preload: npath.join(__dirname, 'preload.js'),
         nodeIntegrationInWorker: true
     }
   });
-  win.loadFile('index.html');
+
+  // TO CHANGE DEFAULT HOME PAGE CHANGE THE LINE BELOW
+  win.loadFile('./searchcode/index.html');
+
+  // GO TO AI APP
+  ipcMain.on('open-AI-app', (event, filePath) => {
+    win.loadFile(filePath);
+  })
+  // GO TO SEARCH APP
+  ipcMain.on('open-search-app', (event, filePath) => {
+    win.loadFile(filePath);
+  });
   // OPEN DIRECTORY DIALOG
   ipcMain.on('open-directory-dialog', async () => openDirectoryProcess(win));
   // OPEN FILE
@@ -32,35 +43,48 @@ const createWindow = () => {
     //shell.openPath(filePath);
     shell.showItemInFolder(filePath);
   });
-  // RECURSIVE CONTENT SEARCH
-  ipcMain.on('recursive-content-search', async (event, args) => {
-    try {
-        if (args && args.length >= 2) {
-            console.log('Received arguments:', args);
-            const matchingFilePaths = await sfcr.searchFileContentRecursively(args[0], args[1]);
-            console.log('Matching file paths:', matchingFilePaths);
-             // If the search is successful, emit 'search-result' with the matching file paths
-            event.sender.send('search-result', matchingFilePaths);
-        } else {
-            console.error('Invalid arguments for recursive content search. Args:', args);
-        }
-    } catch (error) {
-        console.error('Error during recursive content search:', error.message);
-        // If there is an error during the search, emit 'search-error' with an error message
-        // Example: event.sender.send('search-error', 'An error occurred during the search');
-    }
-  });
-  // RECURSIVE NAME SEARCH
-  ipcMain.on('recursive-name-search', async (event, args) => {
-    try {
-        if (args && args.length >= 2) {
-            console.log('Received arguments:', args);
-            const matchingFilePaths = await sfnr.searchFileNamesRecursively(args[0], args[1]);
-            console.log('Matching file paths:', matchingFilePaths);
-            // If the search is successful, emit 'search-result' with the matching file paths
-            event.sender.send('search-result', matchingFilePaths);
-        } else {
-            console.error('Invalid arguments for recursive content search. Args:', args);
+  // FILE SEARCH
+  ipcMain.on('start-search', async (event, args) => {
+    //args[2] = 0 = non-recursive, args[2] = 1 = recursive
+    //args[3] = 0 = name and content, 1 = file names, 2 = file content
+    console.log(typeof(args[2]), typeof(args[3]));
+    var matchingFilePaths;
+    try  {
+        if(args[2] == '0') {
+          // NON RECURSIVE SEARCHED
+            switch(args[3]) {
+                case '0':
+                    // TODO: Implement content+name search
+                    event.sender.send('search-result', matchingFilePaths);
+                    break;
+                case '1':
+                  // SEARCH FILE NAMES
+                    matchingFilePaths = await sfnr.searchFileNamesRecursively(args[0], args[1], false);
+                    event.sender.send('search-result', matchingFilePaths);
+                    break;
+                case '2':
+                  // SEARCH FILE CONTENT
+                    matchingFilePaths = await sfcr.searchFileContentRecursively(args[0], args[1], false);
+                    event.sender.send('search-result', matchingFilePaths);
+                    break;
+            }
+        } else if (args[2] == '1') {
+            switch(args[3]) {
+                case '0':
+                    // TODO: Implement content+name search
+                    event.sender.send('search-result', matchingFilePaths);
+                    break;
+                case '1':
+                  // SEARCH FILE NAMES RECURSIVELY
+                    matchingFilePaths = await sfnr.searchFileNamesRecursively(args[0], args[1], true);
+                    event.sender.send('search-result', matchingFilePaths);
+                    break;
+                case '2':
+                  // SEARCH FILE CONTENT RECURSIVELY
+                    matchingFilePaths = await sfcr.searchFileContentRecursively(args[0], args[1], true);
+                    event.sender.send('search-result', matchingFilePaths);
+                    break;
+            }
         }
     } catch (error) {
         console.error('Error during recursive content search:', error.message);

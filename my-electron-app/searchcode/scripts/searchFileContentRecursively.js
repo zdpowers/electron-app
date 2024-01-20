@@ -1,22 +1,18 @@
-/**
- * Recursively searches for text through all files in a directory and its subdirectories
- * Handles text-based files, PPT files, and PDF files.
- * Dependencies: readline-promise (for PPT) and pdf-parse (for PDF)
- * To install dependencies: npm install readline-promise pdf-parse
- * @author zdp
- * @version 1.0
- */
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline-promise');
 const pdf = require('pdf-parse');
 
+
 /**
  * Recursively searches files in a directory for occurrences of a specified text.
  * @param {string} directory - The directory to start the search from.
  * @param {string} searchText - The text to search for in the files.
+ * @param {boolean} recursiveFlag - If true search subdirs recursively, if false only search current dir
+ * @returns {Array} - An array of full filepaths for all matches.
  */
-async function searchFileContentRecursively(directory, searchText) {
+async function searchFileContentRecursively(directory, searchText, recursiveFlag) {
+    const matchingFilePaths = [];
     try {
         const files = fs.readdirSync(directory);
 
@@ -26,7 +22,11 @@ async function searchFileContentRecursively(directory, searchText) {
 
             if (fileStats.isDirectory()) {
                 // If it's a directory, recursively search its contents
-                await searchFiles(filePath, searchText);
+                //await searchFileContentRecursively(filePath, searchText);
+                if(recursiveFlag == true) {
+                    const nestedMatches = await searchFileContentRecursively(filePath, searchText);
+                    matchingFilePaths.push(...nestedMatches);
+                }
             } else {
                 // If it's a file, determine its type and search for the specified text
                 if (path.extname(filePath).toLowerCase() === '.pdf') {
@@ -37,6 +37,7 @@ async function searchFileContentRecursively(directory, searchText) {
                             var count = countOccurrences(content, searchText);
                             console.log('Match found in PDF file:', filePath);
                             console.log(count);
+                            matchingFilePaths.push(filePath);
                         }
                     } catch (pdfError) {
                         console.error(`Error reading PDF file '${filePath}': ${pdfError.message}`);
@@ -49,6 +50,7 @@ async function searchFileContentRecursively(directory, searchText) {
                             var count = countOccurrences(content, searchText);
                             console.log('Match found in PowerPoint file:', filePath);
                             console.log(count);
+                            matchingFilePaths.push(filePath);
                         }
                     } catch (binaryFileError) {
                         console.error(`Error reading binary file '${filePath}': ${binaryFileError.message}`);
@@ -61,6 +63,7 @@ async function searchFileContentRecursively(directory, searchText) {
                             var count = countOccurrences(content, searchText);
                             console.log('Match found in text file:', filePath);
                             console.log(count);
+                            matchingFilePaths.push(filePath);
                         }
                     } catch (textFileError) {
                         console.error(`Error reading text file '${filePath}': ${textFileError.message}`);
@@ -71,6 +74,7 @@ async function searchFileContentRecursively(directory, searchText) {
     } catch (dirReadError) {
         console.error(`Error reading directory '${directory}': ${dirReadError.message}`);
     }
+    return matchingFilePaths;
 }
 
 
@@ -140,23 +144,9 @@ function countOccurrences(content, searchText) {
     return matches ? matches.length : 0;
 }
 
-
-// Command-line arguments
-const args = process.argv.slice(2);
-
-// Ensure correct usage
-if (args.length !== 2) {
-    console.error('Usage: node search.js <directory_path> <search_text>');
-    process.exit(1);
-}
-
-// Extract arguments
-const directoryPath = args[0];
-const searchText = args[1];
-
-// Run the search
-searchFileContentRecursively(directoryPath, searchText);
-
-
-//To run the script from the command line, use the following syntax:
-//node search.js <directory_path> <search_text>
+module.exports = {
+    searchFileContentRecursively,
+    readTextFromBinaryFile,
+    readTextFromPdfFile,
+    countOccurrences,
+};
