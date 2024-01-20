@@ -17,7 +17,6 @@ For box-shadows: https://getcssscan.com/css-box-shadow-examples?ref=beautifulbut
   display: flex;
   flex-direction: column;
 }
-
 .sidebar-button {
   background-color: #444; /* Button background color */
   color: #fff; /* Button text color */
@@ -32,18 +31,16 @@ For box-shadows: https://getcssscan.com/css-box-shadow-examples?ref=beautifulbut
   justify-content: space-around;
   transition: background-color 0.3s ease; /* Add transition for smoother color change */
 }
-
 .sidebar-button:hover {
   background-color: #555; /* Darken the background on hover */
 }
-
 .sidebar-button:active {
   background-color: #666; /* Make it even lighter on click */
 }
-
 .sidebar-button .icon {
   font-size: 18px; /* Adjust the icon size */
 }
+
 
 /* Adjust main content to accommodate the sidebar */
 
@@ -74,6 +71,12 @@ h1, h2, h3 {
   font-family: 'Open Sans', sans-serif; /* Use Open Sans font for heading elements */
 }
 
+.temp-message {
+  width: 100%;
+  text-align: center;
+  margin-top: 75px;
+}
+
 .bottom-bar {
   position: fixed;
   bottom: 0;
@@ -84,102 +87,9 @@ h1, h2, h3 {
   z-index: 10;
 }
 
-.search-parameters-box, .search-results-box {
-  background: white;
-  margin-top: 50px;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-
-/* SELECT DIR TO SEARCH */
-.select-dir-flexbox {
-  display: flex;
-}
-.sel-dir-lbl {
-  margin: auto 10px;
-}
-
-/* ENTER SEARCH KEYWORDS */
-.search-term-flexbox {
-  display: flex;
-}
-.search-term-lbl {
-  margin: auto 10px auto 0px;
-}
-
-/* SLECT SEARCH OPTIONS */
-.radio-option-box {
-  padding: 5px;
-}
-.radio-label {
-  margin: auto 10px;
-}
-
-/* SEARCH BUTTON */
-.search-btn-box {
-  margin-top: 15px;
-}
 
 
-/* BACK BUTTON */
-.back-btn-box {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
 
-/* RESULT LIST */
-.result-list {
-  list-style-type: none;
-}
-.result-list-item {
-  padding: 5px;
-  color: #3366CC;
-}
-.result-list-item:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-/* BUTTON CSS https://getcssscan.com/css-buttons-examples */
-.button-7 {
-  background-color: #0095ff;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.15385;
-  margin: 0;
-  outline: none;
-  padding: 8px .8em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-.button-7:hover,
-.button-7:focus {
-  background-color: #07c;
-}
-.button-7:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
-}
-.button-7:active {
-  background-color: #0064bd;
-  box-shadow: none;
-}
 
 /* SCROLL BAR Override default scroll bar styles */
 ::-webkit-scrollbar {

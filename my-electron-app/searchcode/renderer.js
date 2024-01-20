@@ -2,6 +2,11 @@
 // Set search results section display to none, because its not working when set in html for whatever reasone
 document.getElementById('searchresults').style.display = "none";
 
+// Navigate to AI application
+document.getElementById('aiButton').addEventListener('click', () => {
+    myapp.navToAI();
+});
+
 // Open Directory
 document.getElementById('opnDirBtn').addEventListener('click', () => {
     // Select the dir
@@ -9,6 +14,8 @@ document.getElementById('opnDirBtn').addEventListener('click', () => {
     // Set the Dir Path
     myapp.setSelected()
 });
+
+
 
 // Start Search
 const searchResultsList = document.getElementById('searchResultsList');
@@ -51,6 +58,8 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
         console.error('Error during search:', error.message);
     }
 });
+
+
 // Attach a click event listener to the parent ul element (using event delegation)
 searchResultsList.addEventListener('click', (event) => {
     const target = event.target;
@@ -78,6 +87,9 @@ function openDocument(filePath) {
 
 // Back button
 document.getElementById('searchBackBtn').addEventListener('click', () => {
+    // CLEAR SEARCH RESULTS
+    searchResultsList.innerHTML = '<li><div class="loading-results">Loading</div></li>';
+
     document.getElementById('searchresults').style.display = "none";
     document.getElementById('searchparameters').style.display = "block";
 })

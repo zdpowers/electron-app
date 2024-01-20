@@ -1,1 +1,8 @@
 To start the application: npm run start
+
+All of the code related to searching is within the search code directory.
+All code related to the AI RAG applicaiton is in the aicode directory.
+
+The main.js file in the home directory has the main logic of the applicaiton and controls the logic for both search and AI
+The preload.js file in the home directory also contains contextbridge code for both the aicode and the search code
+
