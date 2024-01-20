@@ -24,18 +24,18 @@ const createWindow = () => {
         nodeIntegrationInWorker: true
     }
   });
+
+  // TO CHANGE DEFAULT HOME PAGE CHANGE THE LINE BELOW
   win.loadFile('./searchcode/index.html');
 
   // GO TO AI APP
   ipcMain.on('open-AI-app', (event, filePath) => {
     win.loadFile(filePath);
   })
-
   // GO TO SEARCH APP
   ipcMain.on('open-search-app', (event, filePath) => {
     win.loadFile(filePath);
   });
-
   // OPEN DIRECTORY DIALOG
   ipcMain.on('open-directory-dialog', async () => openDirectoryProcess(win));
   // OPEN FILE
