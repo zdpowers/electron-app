@@ -8,6 +8,22 @@
     <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 <body class="body-box">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Search Button with Search Icon -->
+    <button class="sidebar-button" id="searchButton">
+      <span class="icon">&#128269;</span> <!-- Unicode for search icon -->
+  </button>
+
+  <!-- AI Button with AI Icon -->
+  <button class="sidebar-button" id="aiButton">
+      <span class="icon">✨</span> <!-- Unicode for AI icon -->
+  </button>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="content">
     <div class="top-bar"></div>
     <div id="searchparameters" class="search-parameters-box">
       <div class="page-title-box">
@@ -62,7 +78,6 @@
           <button id="searchBtn" class="button-7">Start Search!</button>
         </div>
     </div>
-
     <div id="searchresults" class="search-results-box">
         <div class="back-btn-box">
           <button id="searchBackBtn" class="button-7">Back</button>
@@ -71,10 +86,8 @@
         <ul id="searchResultsList" class="result-list">
         </ul>
     </div>
+  </div>
 
-    <!--
-    <p id="info" class="info-bar"></p>
-    -->
     <script src="./renderer.js"></script>
 </body>
 

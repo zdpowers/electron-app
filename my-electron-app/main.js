@@ -13,11 +13,11 @@ const createWindow = () => {
     width: 900,
     height: 700,
     titleBarStyle: "hidden",
-    //titleBarOverlay: {
-    //    color: '#2f3241',
-    //    symbolColor: '#74b1be',
-    //},
-    titleBarOverlay: true,
+    titleBarOverlay: {
+        color: '#222',
+        symbolColor: '#f0f0f0',
+    },
+    //titleBarOverlay: true,
     //frame: false,
     webPreferences: {
         preload: npath.join(__dirname, 'preload.js'),
@@ -36,9 +36,10 @@ const createWindow = () => {
   ipcMain.on('start-search', async (event, args) => {
     //args[2] = 0 = non-recursive, args[2] = 1 = recursive
     //args[3] = 0 = name and content, 1 = file names, 2 = file content
+    console.log(typeof(args[2]), typeof(args[3]));
     var matchingFilePaths;
     try  {
-        if(args[2] == 0) {
+        if(args[2] == '0') {
           // NON RECURSIVE SEARCHED
             switch(args[3]) {
                 case '0':
@@ -56,7 +57,7 @@ const createWindow = () => {
                     event.sender.send('search-result', matchingFilePaths);
                     break;
             }
-        } else if (args[2] == 1) {
+        } else if (args[2] == '1') {
             switch(args[3]) {
                 case '0':
                     // TODO: Implement content+name search
