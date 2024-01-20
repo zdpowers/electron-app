@@ -70,6 +70,16 @@ For box-shadows: https://getcssscan.com/css-box-shadow-examples?ref=beautifulbut
   /*box-shadow: 0 4px 4px -4px grey;*/
 }
 
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: #222;
+  z-index: 10;
+}
+
 .search-parameters-box, .search-results-box {
   background: white;
   margin-top: 50px;
@@ -165,4 +175,20 @@ For box-shadows: https://getcssscan.com/css-box-shadow-examples?ref=beautifulbut
 .button-7:active {
   background-color: #0064bd;
   box-shadow: none;
+}
+
+/* SCROLL BAR Override default scroll bar styles */
+::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #555; /* Set the color of the thumb (the draggable part) */
+  border-radius: 6px; /* Set border-radius for a rounded appearance */
+}
+::-webkit-scrollbar-track {
+  background-color: #333; /* Set the color of the track (the non-draggable part) */
+}
+/* Add hover effect for the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
 }
