@@ -7,9 +7,13 @@
     <title>Computer Utilities!</title>
     <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
-<body class="body-box">
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <!-- Add content for the top bar as needed -->
+  </div>
 
-  <!-- Sidebar -->
+    <!-- Sidebar -->
   <div class="sidebar">
     <!-- AI Button with AI Icon -->
     <button class="sidebar-button" id="aiButton">
@@ -21,15 +25,30 @@
       <span class="icon">&#128269;</span> <!-- Unicode for search icon -->
     </button>
   </div>
-  
+
   <!-- Main Content -->
   <div class="main-container">
-    <div class="top-bar"></div>
-    <h1 class="temp-message">RAG AI Coming Soon...</h1>
-    <div class="bottom-bar"></div>
+    <div class="parent-container">
+      <div class="chat-container">
+        <div class="chat-messages">
+          <div class="message received">Hello there!</div>
+          <div class="message sent">Hi! How can I help you?</div>
+          <!-- Add more messages as needed -->
+        </div>
+        <div class="chat-input">
+          <textarea class="user-input" placeholder="Type your message..."></textarea>
+          <button class="send-button">Send</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-    <script src="./renderer.js"></script>
+  <!-- Bottom Bar -->
+  <div class="bottom-bar">
+    <!-- Add content for the bottom bar as needed -->
+  </div>
+
+  <script src="./renderer.js"></script>
 </body>
 
 </html>
