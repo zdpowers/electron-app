@@ -6,3 +6,27 @@ All code related to the AI RAG applicaiton is in the aicode directory.
 The main.js file in the home directory has the main logic of the applicaiton and controls the logic for both search and AI
 The preload.js file in the home directory also contains contextbridge code for both the aicode and the search code
 
+-------------------------------------------------------------------------------------------------------------------------------
+Installations for the Search module:
+- npm install readline-promise pdf-parse
+
+-------------------------------------------------------------------------------------------------------------------------------
+Installations for the AI module:
+- npm install -S langchain
+
+Add the following to the package.json file:
+"engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@langchain/google-genai": "^0.0.2",
+    "langchain": "0.0.207"
+  },
+  "overrides": {
+    "@langchain/core": "0.1.5"
+  }
+
+Use the following to import:
+const { OpenAI } = require("@langchain/openai");
+
+
