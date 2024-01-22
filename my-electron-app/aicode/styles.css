@@ -44,7 +44,7 @@ For box-shadows: https://getcssscan.com/css-box-shadow-examples?ref=beautifulbut
 
 /* Adjust main content to accommodate the sidebar */
 
-.content {
+.main-container {
   margin-left: 60px; /* Adjust the margin to include the sidebar width */
   margin-right: 20px;
 }

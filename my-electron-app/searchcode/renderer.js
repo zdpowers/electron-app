@@ -33,6 +33,7 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
     let args = [fpath, keyword, location, type];
 
     try {
+        //TODO: add alert for if you try to search without adding search term
         const matchingFilePaths = await myapp.startSearch(args);
 
         // Clear previous search results
