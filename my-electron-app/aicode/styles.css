@@ -12,7 +12,9 @@ body {
   left: 0;
   right: 0;
   height: 2em; /* Adjust the height of the top bar as needed */
-  background-color: #222; /* Set the background color of the top bar */
+  /*background-color: #222;  Set the background color of the top bar */
+  background-color: white; /* TESTING OUT*/
+  border-bottom: 1px solid #ccc; /* TESTING OUT*/
   z-index: 100;
 }
 
@@ -23,7 +25,9 @@ body {
   left: 0;
   height: 100%;
   width: 45px; /* Set the width of the sidebar as needed */
-  background-color: #333; /* Set the background color of the sidebar */
+  /*background-color: #333;  Set the background color of the sidebar */
+  background-color: white; /* TESTING OUT*/
+  border-right: 1px solid #ccc; /* TESTING OUT*/
   padding-top: 40px;
   box-shadow: 0 4px 4px -4px grey;
   z-index: 10;
@@ -31,9 +35,12 @@ body {
   flex-direction: column;
 }
 .sidebar-button {
-  background-color: #444; /* Button background color */
-  color: #fff; /* Button text color */
-  border: none;
+  /*background-color: #444;  Button background color */
+  /* color: #fff;  Button text color */
+  background-color: white; /* TESTING OUT Button backgorund color */
+  color: #333; /* TESTING OUT Button text color */
+  border: 1px solid #ccc; /* TESTING OUT */
+  /*border: none; */
   padding: 10px;
   margin-bottom: 10px;
   margin-left: 2px;
@@ -45,10 +52,12 @@ body {
   transition: background-color 0.3s ease; /* Add transition for smoother color change */
 }
 .sidebar-button:hover {
-  background-color: #555; /* Darken the background on hover */
+  /* background-color: #555;  Darken the background on hover */
+  background-color: #E8E8E8; /* TESTING OUT poss make lighter*/
 }
 .sidebar-button:active {
-  background-color: #666; /* Make it even lighter on click */
+  /*background-color: #666;  Make it even lighter on click */
+  background-color: #D1D1D1; /*TESTING OUT poss make lighter */
 }
 .sidebar-button .icon {
   font-size: 18px; /* Adjust the icon size */
@@ -153,6 +162,8 @@ body {
   left: 0;
   right: 0;
   height: 10px; /* Adjust the height of the bottom bar as needed */
-  background-color: #222; /* Set the background color of the bottom bar */
+  /*background-color: #222;  Set the background color of the bottom bar */
+  background-color: white;/* TESTING OUT*/
+  border-top: 1px solid #ccc;/* TESTING OUT*/
   z-index: 100;
 }

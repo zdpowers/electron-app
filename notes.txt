@@ -30,3 +30,9 @@ Use the following to import:
 const { OpenAI } = require("@langchain/openai");
 
 
+RAG LLM
+Vector Store: Start off with HNSWLib
+Model: Start off with OpenAI
+Embeddings: Start with OpenAI
+Output Parser: Stick with String for now
+
