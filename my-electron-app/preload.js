@@ -43,6 +43,10 @@ contextBridge.exposeInMainWorld('myapp', {
         // Navigate to the AI application
         ipcRenderer.send('open-AI-app', './aicode/index.html');
     },
+    navToNms: () => {
+        // Navigate to the NMS Application
+        ipcRenderer.send('open-nms-app', './nmscode/index.html');
+    },
 });
 
 // CONTEXT BRIDGE FOR AI PORTION OF APPLICATION
@@ -50,5 +54,21 @@ contextBridge.exposeInMainWorld('aiapp', {
     navToSearch: () => {
         // Navigate to the Search Applicaiton
         ipcRenderer.send('open-search-app', './searchcode/index.html');
-    }
+    },
+    navToNms: () => {
+        // Navigate to the NMS Application
+        ipcRenderer.send('open-nms-app', './nmscode/index.html');
+    },
 });
+
+// CONTEXT BRIDGE FOR NMS PORTION OF APPLICATION
+contextBridge.exposeInMainWorld('nmsapp', {
+    navToAI: () => {
+        // Navigate to the AI application
+        ipcRenderer.send('open-AI-app', './aicode/index.html');
+    },
+    navToSearch: () => {
+        // Navigate to the Search Applicaiton
+        ipcRenderer.send('open-search-app', './searchcode/index.html');
+    },
+})

@@ -1,8 +1,12 @@
-// Navigate to AI application
+// Navigate to Search application
 document.getElementById('searchButton').addEventListener('click', () => {
     aiapp.navToSearch();
 });
 
+// Navigate to the NMS application
+document.getElementById('nmsButton').addEventListener('click', () => {
+    aiapp.navToNms();
+});
 
 // On Send, send user message and get response.
 document.getElementById('sendButton').addEventListener('click', () => {

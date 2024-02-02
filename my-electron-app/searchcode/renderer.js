@@ -7,6 +7,11 @@ document.getElementById('aiButton').addEventListener('click', () => {
     myapp.navToAI();
 });
 
+// Navigate to the NMS application
+document.getElementById('nmsButton').addEventListener('click', () => {
+    myapp.navToNms();
+});
+
 // Open Directory
 document.getElementById('opnDirBtn').addEventListener('click', () => {
     // Select the dir

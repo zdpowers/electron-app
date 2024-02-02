@@ -1,0 +1,139 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  
+  /* Top Bar Styles */
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2em; /* Adjust the height of the top bar as needed */
+    background-color: white; /* TESTING OUT*/
+    border-bottom: 1px solid #ccc; /* TESTING OUT*/
+    z-index: 100;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 45px; /* Set the width of the sidebar as needed */
+    background-color: white; /* TESTING OUT*/
+    border-right: 1px solid #ccc; /* TESTING OUT*/
+    padding-top: 40px;
+    box-shadow: 0 4px 4px -4px grey;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-button {
+    background-color: white; /* TESTING OUT Button backgorund color */
+    color: #333; /* TESTING OUT Button text color */
+    border: 1px solid #ccc; /* TESTING OUT */
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: background-color 0.3s ease; /* Add transition for smoother color change */
+    user-select: none;
+  }
+  .sidebar-button:hover {
+    background-color: #E8E8E8; /* TESTING OUT poss make lighter*/
+  }
+  .sidebar-button:active {
+    background-color: #D1D1D1; /*TESTING OUT poss make lighter */
+  }
+  .sidebar-button .icon {
+    font-size: 18px; /* Adjust the icon size */
+  }
+  
+  /* Side Menu Styles*/
+  .sidemenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    /*width: fit-content;  Set the width of the sidebar as needed */
+    width: 17em;
+    background-color: white; /* Set the background color of the sidebar */
+    border-right: 1px solid #ccc; /* TESTING OUT*/
+    padding-top: 40px;
+    box-shadow: 0 4px 4px -4px grey;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+  }
+  .menuitem {
+    margin-left: 55px;
+    margin-right: 10px;
+    padding: 5px;
+    user-select: none;
+    border-bottom: 1px solid #ccc;
+  }
+  .menuitem:hover {
+    background-color: #E8E8E8; /* TESTING OUT poss make lighter*/
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .menuitem:active {
+    background-color: #D1D1D1; /*TESTING OUT poss make lighter */
+  }
+  
+  /* Main Content Styles */
+  .main-container {
+    margin-left: 18em; /* Adjust the margin to include the sidebar width -> 45px*/
+    /*SET MARGIN-LEFT TO 20em INITIALLY BECUASE THE SIDEMENU IS RENDERED INITIALLY*/
+  }
+  .parent-container {
+    height: 100vh; /* Set parent div's height to 100% of viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Add Container*/
+  
+  /* Verify Container */
+  .verify-container {
+    display: none;
+  }
+  
+  
+  /* SCROLL BAR Override default scroll bar styles */
+  ::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #555; /* Set the color of the thumb (the draggable part) */
+    border-radius: 6px; /* Set border-radius for a rounded appearance */
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #333; /* Set the color of the track (the non-draggable part) */
+  }
+  /* Add hover effect for the thumb */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+  }
+  
+  
+  /* Bottom Bar Styles */
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px; /* Adjust the height of the bottom bar as needed */
+    background-color: white;/* TESTING OUT*/
+    border-top: 1px solid #ccc;/* TESTING OUT*/
+    z-index: 100;
+  }

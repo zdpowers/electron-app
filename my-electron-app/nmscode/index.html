@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <title>Computer Utilities!</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <!-- Add content for the top bar as needed -->
+    </div>
+      <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- AI Button with AI Icon -->
+      <button class="sidebar-button" id="aiButton">
+        <span class="icon">✨</span> <!-- Unicode for AI icon -->
+      </button>
+  
+      <!-- Search Button with Search Icon -->
+      <button class="sidebar-button" id="searchButton">
+        <span class="icon">&#128269;</span> <!-- Unicode for search icon -->
+      </button>
+      
+      <!-- NMS Button with Lighning Icon -->
+      <button class="sidebar-button" id="nmsButton">
+        <span class="icon">&#9889;</span> <!-- Unicode for lighning icon -->
+      </button>
+    </div>
+    <!--Sidemenu -->
+    <div class="sidemenu" id="sidemenu">
+      <div class="menuitem" id="addUsersBtn">Add Users to Application</div>
+      <div class="menuitem" id="verifyUsersBtn">Verify Application Access</div>
+    </div>
+    
+  
+    <!-- Main Content -->
+    <div class="main-container" id="maincontainer">
+      <!-- ACTUAL MAIN CONTENT -->
+      <div class="parent-container">
+        <div class="add-container" id="addContainer">Add User to Application</div>
+        <div class="verify-container" id="verifyContainer">Verify Application Access</div>
+      </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+      <!-- Add content for the bottom bar as needed -->
+    </div>
+  
+    <script src="./renderer.js"></script>
+  </body>
+  </html>

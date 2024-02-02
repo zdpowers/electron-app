@@ -39,6 +39,10 @@ const createWindow = () => {
   ipcMain.on('open-search-app', (event, filePath) => {
     win.loadFile(filePath);
   });
+  // GO TO NMS APP
+  ipcMain.on('open-nms-app', (event, filePath) => {
+    win.loadFile(filePath);
+  });
   // OPEN DIRECTORY DIALOG
   ipcMain.on('open-directory-dialog', async () => openDirectoryProcess(win));
   // OPEN FILE
